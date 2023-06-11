@@ -61,6 +61,19 @@ Django版本：4.2.2（个人测试使用）
 
 ## 项目截图
 
-![image](https://github.com/TreasureLZ/Django_Collection/blob/main/Book_Analysis/images/%E4%BB%B7%E6%A0%BC%E5%8C%BA%E9%97%B4%E6%95%B0%E9%87%8F%E7%BB%9F%E8%AE%A1.jpg)
-![image](https://github.com/TreasureLZ/Django_Collection/blob/main/Book_Analysis/images/%E4%BB%B7%E6%A0%BC%E5%8C%BA%E9%97%B4%E6%95%B0%E9%87%8F%E7%BB%9F%E8%AE%A1.jpg)
-![image](https://github.com/TreasureLZ/Django_Collection/blob/main/Book_Analysis/images/%E4%BB%B7%E6%A0%BC%E5%8C%BA%E9%97%B4%E6%95%B0%E9%87%8F%E7%BB%9F%E8%AE%A1.jpg)
+#### 登录
+![登录](https://github.com/TreasureLZ/Django_Collection/blob/main/Book_Analysis/images/登录.jpg)
+#### 注册
+![注册](https://github.com/TreasureLZ/Django_Collection/blob/main/Book_Analysis/images/注册.jpg)
+#### 首页
+![首页](https://github.com/TreasureLZ/Django_Collection/blob/main/Book_Analysis/images/首页.jpg)
+#### 价格区间数量统计
+![价格区间数量统计](https://github.com/TreasureLZ/Django_Collection/blob/main/Book_Analysis/images/价格区间数量统计.jpg)
+#### 不同类别下出版社发行量Top5
+![不同类别下出版社发行量Top5](https://github.com/TreasureLZ/Django_Collection/blob/main/Book_Analysis/images/不同类别下出版社发行量Top5.jpg)
+#### 大屏展示
+![大屏展示](https://github.com/TreasureLZ/Django_Collection/blob/main/Book_Analysis/images/大屏展示.jpg)
+#### 图书推荐
+![图书推荐](https://github.com/TreasureLZ/Django_Collection/blob/main/Book_Analysis/images/图书推荐.jpg)
+#### 后台管理
+![后台管理](https://github.com/TreasureLZ/Django_Collection/blob/main/Book_Analysis/images/后台管理.jpg)
