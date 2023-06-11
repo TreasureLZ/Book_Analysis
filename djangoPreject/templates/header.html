@@ -1,0 +1,75 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">图书分析大屏展示系统</a>
+        <a class="nav-link" id="showTime" style="color: white">
+        </a>
+        <div>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'system:index' %}">首页</a>
+                </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ user.username }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#" onclick="user_delete()">删除用户</a>
+                            <a class="dropdown-item" href="{% url 'user:logout' %}">退出登录</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{% url 'system:show' %}" target="_blank">大屏展示</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="http://127.0.0.1:8000/admin" target="_blank">后台管理</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'user:login' %}">登录</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+{% if user.is_authenticated %}
+    <form
+            style="display: none;"
+            id="user_delete"
+            action="{% url 'user:delete' user.id %}"
+            method="POST"
+    >
+        {% csrf_token %}
+        <button type="submit">发送</button>
+    </form>
+    <script>
+        function user_delete() {
+            layer.open({
+                title: "确认删除",
+                content: "确认删除用户资料吗？",
+                yes: function (index, layero) {
+                    $('form#user_delete button').click();
+                    layer.close(index);
+                }
+            })
+        }
+    </script>
+    <script>
+        var t = null;
+        t = setTimeout(time, 1000);//開始运行
+        function time() {
+            clearTimeout(t);//清除定时器
+            dt = new Date();
+            var y = dt.getFullYear();
+            var mt = dt.getMonth() + 1;
+            var day = dt.getDate();
+            var h = dt.getHours();//获取时
+            var m = dt.getMinutes();//获取分
+            var s = dt.getSeconds();//获取秒
+            document.getElementById("showTime").innerHTML = y + "年" + mt + "月" + day + "日" + "-" + h + "时" + m + "分" + s + "秒";
+            t = setTimeout(time, 1000); //设定定时器，循环运行
+        }
+    </script>
+{% endif %}

@@ -1,0 +1,90 @@
+{% extends "base.html" %}{% load static %}
+{% block title %}不同类别下价格区间数量占比{% endblock %}
+{% block style %}
+    <style>
+        a {
+            text-decoration: none;
+        }
+
+        .category {
+            margin-left: 20px;
+            font-size: large;
+            color: #2a99ff;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="container" style="padding-top: 100px; padding-left: 20px">
+        <div>
+            <a href="{% url 'system:chart1' %}">
+                <span class="category">刷新</span>
+            </a>
+            {% for item in categories %}
+                <a href="{% url 'system:chart1' %}?category={{ item.category }}">
+                    <span class="category">{{ item.category }}</span>
+                </a>
+            {% endfor %}
+        </div>
+        {% if category %}
+            <div id="chart" style="height: 800px;padding-top: 100px;"></div>
+        {% endif %}
+    </div>
+{% endblock %}
+{% block script %}
+    <script>
+        var data =
+        {{ data|safe }}
+        var Chart = echarts.init(document.getElementById('chart'));
+        var option = {
+            title: {
+                text: '价格区间数量统计',
+                left: 'left'
+            },
+            tooltip: {},
+            legend: {
+                right: 'right'
+            },
+            xAxis: {
+                name: '价格区间',
+                type: 'category',
+                data: data.x_data
+            },
+            yAxis: {
+                name: '数量',
+                type: 'value',
+                max: Math.max(...data.y_data) + 20
+            },
+            series: [{
+                name: '数量',
+                type: 'bar',
+                data: data.y_data,
+                itemStyle: {
+                    color: new echarts.graphic.LinearGradient(
+                        0, 0, 0, 1,
+                        [
+                            {offset: 0, color: '#83bff6'},
+                            {offset: 0.5, color: '#188df0'},
+                            {offset: 1, color: '#188df0'}
+                        ]
+                    )
+                },
+                markPoint: {
+                    symbolSize: 100,
+                    label: {
+                        show: true,
+                        formatter: function (param) {
+                            return param.name;
+                        }
+                    },
+                    data: [
+                        {name: '最小值', type: 'min'},
+                        {name: '最大值', type: 'max'}
+                    ]
+                }
+            }]
+        };
+
+
+        Chart.setOption(option);
+    </script>
+{% endblock %}

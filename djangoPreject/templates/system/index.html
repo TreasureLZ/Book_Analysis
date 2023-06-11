@@ -1,0 +1,32 @@
+{% extends "base.html" %}{% load static %}
+{% block title %}首页{% endblock %}
+{% block style %}
+    <style>
+        .index {
+            padding-top: 250px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .index a {
+            margin: auto;
+        }
+
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="index">
+        <a href="{% url 'system:chart1' %}">
+            <button type="button" class="btn btn-primary">&nbsp;&nbsp;&nbsp;不同类别下价格区间数量占比&nbsp;&nbsp;&nbsp;</button>
+        </a>
+        <a href="{% url 'system:chart2' %}">
+            <button type="button" class="btn btn-success">&nbsp;&nbsp;&nbsp;不同类别下出版社发行量Top5&nbsp;&nbsp;&nbsp;</button>
+        </a>
+        <a href="{% url 'system:recommend' %}">
+            <button type="button" class="btn btn-info">&nbsp;&nbsp;&nbsp;图书推荐&nbsp;&nbsp;&nbsp;</button>
+        </a>
+        <a href="{% url 'system:show' %}">
+            <button type="button" class="btn btn-warning">&nbsp;&nbsp;&nbsp;大屏展示&nbsp;&nbsp;&nbsp;</button>
+        </a>
+    </div>
+{% endblock %}

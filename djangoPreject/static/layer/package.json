@@ -1,0 +1,40 @@
+{
+  "name": "layer-src",
+  "realname": "layer",
+  "version": "3.5.1",
+  "mobile": "2.0.0",
+  "description": "Web 通用弹出层组件",
+  "main": "src/layer.js",
+  "license": "MIT",
+  "scripts": {
+    "run": "gulp"
+  },
+  "repository": {
+    "type": "https",
+    "url": "git+https://github.com/sentsin/layer.git"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-uglify": "^1.5.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-header": "^1.8.8",
+    "del": "^2.2.2"
+  },
+  "bugs": {
+    "url": "https://github.com/sentsin/layer/issues"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "keywords": [
+    "layui",
+    "layer",
+    "dialog",
+    "tips",
+    "alert",
+    "confirm",
+    "window"
+  ]
+}

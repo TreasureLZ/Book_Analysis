@@ -1,0 +1,63 @@
+{% extends "base.html" %}{% load static %}
+{% block title %}图书推荐{% endblock %}
+{% block style %}
+
+{% endblock %}
+{% block content %}
+<div class="container" style="padding-top: 100px">
+    <div class="row">
+        {% for book in books %}
+        <div class="col-md-4">
+            <a href="{{ book.book_url }}" target="_blank" style="text-decoration: none;">
+                <div class="card mb-4 shadow-sm" style="border: none;">
+                    <img class="card-img-top" src="{{ book.img_url }}" alt="{{ book.title }}" style="height: 300px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title" style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">{{ book.title }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted" style="font-size: 16px; margin-bottom: 10px;">{{ book.press }}</h6>
+                        <p class="card-text" style="font-size: 18px; font-weight: bold; margin-bottom: 5px; color: #FF5722;">价格：{{ book.now_price }}元</p>
+                        <p class="card-text" style="font-size: 16px; margin-bottom: 5px;">评分：{{ book.star }}（{{ book.comment_num }}条评论）</p>
+                        <p class="card-text" style="font-size: 16px; margin-bottom: 20px;">发布时间：{{ book.createTime }}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+    <div class="paginator row">
+        <div class="m-auto">
+        <span class="step-links">
+            {% if books.has_previous %}
+                <a href="?page=1"
+                   class="btn btn-success">
+                    &laquo; 1
+                </a>
+                <span>...</span>
+                <a href="?page={{ books.previous_page_number }}"
+                   class="btn btn-secondary">
+                    {{ books.previous_page_number }}
+                </a>
+            {% endif %}
+            <span class="current btn btn-danger btn-lg">
+                {{ books.number }}
+            </span>
+
+            <!-- 如果不是最末页，则显示下翻按钮 -->
+            {% if books.has_next %}
+                <a href="?page={{ books.next_page_number }}"
+                   class="btn btn-secondary">
+                    {{ books.next_page_number }}
+                </a>
+                <span>...</span>
+                <a href="?page={{ books.paginator.num_pages }}"
+                   class="btn btn-success"
+                >
+                    {{ books.paginator.num_pages }} &raquo;
+                </a>
+            {% endif %}
+        </span>
+        </div>
+    </div>
+{% endblock %}
