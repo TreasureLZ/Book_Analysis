@@ -62,4 +62,4 @@ Django版本：4.2.2（个人测试使用）
 
 ## 项目截图
 
-(https://github.com/TreasureLZ/Book_Analysis/assets/111034196/e543e4fb-0a6e-41e0-980a-808dcf29fb7f)
+![image](https://github.com/TreasureLZ/Book_Analysis/assets/111034196/e543e4fb-0a6e-41e0-980a-808dcf29fb7f)
