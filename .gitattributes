@@ -1,0 +1,6 @@
+* text=auto
+*.md text eol=lf
+*.jpg -text
+*.jpeg -text
+*.png -text
+*.gif -text
